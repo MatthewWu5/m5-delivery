@@ -1,0 +1,28 @@
+:local {
+  .wrapper {
+    width: 308px;
+    background-color: white;
+    border: solid 1px #d8dee2;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 3px;
+    input.submit {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    label,
+    input {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+      color: #24292e;
+    }
+    input {
+      padding: 6px 8px;
+      margin: 5px 0 15px;
+      border: 1px solid #d1d5da;
+      border-radius: 3px;
+    }
+  }
+}
