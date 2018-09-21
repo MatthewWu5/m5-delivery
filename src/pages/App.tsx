@@ -2,7 +2,7 @@ import * as React from 'react'
 import TopBar from '@/components/TopBar'
 import { connect } from 'react-redux'
 import { getContacts, setContactsEmail } from '@/redux/actionCreators/contacts'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, NavLink } from 'react-router-dom'
 import { RouteComponentProps } from 'react-router'
 import { replace, push } from 'react-router-redux'
 import Join from '@/pages/Join'
@@ -12,8 +12,9 @@ import Profile from '@/pages/Profile'
 import NotFound from '@/components/NotFound'
 import Forbidden from '@/components/Forbidden'
 import history from '@/redux/history'
-import GenerateStr from "@/pages/GenerateStr"
+import GenerateStr from '@/pages/GenerateStr'
 
+const styles = require('./index.scss')
 interface PassProps {}
 
 const mapStateToProps = (state: IStore.IRoot) => ({
@@ -54,19 +55,24 @@ class App extends React.Component<Props, State> {
 
   public render() {
     return (
-      <div>
+      <>
         <TopBar />
-        <Switch>
-          <Route path="/join" component={Join} />
-          <Route path="/login" component={Login} />
-          <Route path="/portal" component={Portal} />
-          <Route path="/profile/:id&:name" component={this.renderProfile} />
-          <Route path="/404" component={NotFound} />
-          <Route path="/403" component={Forbidden} />
-          <Redirect from="/admin" to="/" />
-          <Route path="/generateStr" component={GenerateStr} />
-        </Switch>
-      </div>
+        <div className={styles.wrapper}>
+          <Switch>
+            <Route path="/join" component={Join} />
+            <Route path="/login" component={Login} />
+            <Route path="/portal" component={Portal} />
+            <Route path="/profile/:id&:name" component={this.renderProfile} />
+            <Route path="/404" component={NotFound} />
+            <Route path="/403" component={Forbidden} />
+            <Redirect from="/admin" to="/" />
+            <Route path="/generateStr" component={GenerateStr} />
+          </Switch>
+          <NavLink className={styles.navLink} to="/generateStr">
+            generate specify string
+          </NavLink>
+        </div>
+      </>
     )
   }
 }

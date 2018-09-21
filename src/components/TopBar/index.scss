@@ -1,13 +1,14 @@
 :local {
   .wrapper {
-    text-align: center;
-  }
-
-  .App-header {
-    background-color: #24292e;
-    height: 40px;
-    padding: 16px;
-    color: white;
+    .App-header {
+      background-color: #24292e;
+      height: 60px;
+      padding-top: 22px;
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+      text-align: center;
+    }
   }
 
   @keyframes App-logo-spin {

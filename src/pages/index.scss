@@ -1,0 +1,18 @@
+:local {
+  .wrapper {
+    padding: 38px 100px;
+    .generateStr {
+      width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      .showDiv {
+        width: 100%;
+        word-wrap: break-word;
+        min-height: 600px;
+      }
+    }
+  }
+  .line {
+    border-left: solid 1px #d1d5da;
+  }
+}
