@@ -150,5 +150,6 @@
     "rules": {
       "no-unused-vars": 0
     }
-  }
+  },
+  "homepage": "https://github.com/MatthewWu5/m5-delivery"
 }
