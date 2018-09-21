@@ -89,7 +89,7 @@
     "typescript": "^3.0.1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,scss}": [
+    "src/*.{js,jsx,ts,tsx,scss}": [
       "prettier --write",
       "tslint -c tslint.json --fix",
       "git add"
@@ -151,5 +151,5 @@
       "no-unused-vars": 0
     }
   },
-  "homepage": "https://github.com/MatthewWu5/m5-delivery/build"
+  "homepage": "https://matthewwu5.github.io/m5-delivery/build/"
 }
