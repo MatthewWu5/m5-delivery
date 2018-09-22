@@ -17,12 +17,14 @@ type Props = PassProps & {} & typeof mapDispatchToProps
 interface State {
   generateNumber: string
   generateStr: string
+  inputStrCount: number
 }
 
 class GenerateStr extends React.Component<Props, State> {
   state = {
     generateNumber: '',
     generateStr: '',
+    inputStrCount: 'string'.length,
   }
   private _a2z: string = 'abcdefghizklmnopqrstuvwxyz'
   getRandomStr = (type: number) => {
@@ -37,23 +39,32 @@ class GenerateStr extends React.Component<Props, State> {
     }
   }
   onInputChange = (type: number) => (e: any) => {
-    const count = parseInt(e.target.value)
-    if (count > 1000) {
-      return
+    if (type == 2) {
+      this.setState({ inputStrCount: e.target.value.trim(' ').length })
+    } else {
+      const count = parseInt(e.target.value)
+      if (count > 1000) {
+        return
+      }
+      let str = ''
+      for (var index = 0; index < count; index++) {
+        str += this.getRandomStr(type)
+      }
+      const state = type == 0 ? { generateNumber: str } : { generateStr: str }
+      this.setState(state as any, () => {
+        copy(this.state.generateNumber + this.state.generateStr)
+      })
     }
-    let str = ''
-    for (var index = 0; index < count; index++) {
-      str += this.getRandomStr(type)
-    }
-    const state = type == 0 ? { generateNumber: str } : { generateStr: str }
-    this.setState(state as any, () => {
-      copy(this.state.generateNumber + this.state.generateStr)
-    })
   }
   public render() {
     return (
       <div className={styles.generateStr}>
         <div style={{ marginBottom: 2 }}>
+          get the length of the input string
+        </div>
+        <input placeholder="string" onChange={this.onInputChange(2)} />
+        <span style={{ marginLeft: 5 }}>{this.state.inputStrCount}</span>
+        <div style={{ marginBottom: 2, marginTop: 38 }}>
           string would be copy to clipboard after input
         </div>
         <input placeholder="number count" onChange={this.onInputChange(0)} />
